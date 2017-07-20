@@ -1,0 +1,103 @@
+syntax enable
+
+set nocompatible	" be improved, required
+filetype off		" required
+
+" set the runtime path to include Vundel and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternativey, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
+
+" let vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'rust-lang/rust.vim'
+" place plugin here
+
+Plugin 'https://github.com/nvie/vim-flake8'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on
+
+let g:flake8_show_in_file=1 " show
+
+" basic displays
+set number		    " show line numbers
+set ruler 
+
+" input settings
+set bs=indent,eol,start	    " allow backspaces over everything
+set autoindent
+set smartindent
+
+set nowrap
+set textwidth=0             " disable automatic line breaking
+" set cursorline
+
+" tabsettings
+set tabstop=8
+set shiftwidth=4
+set softtabstop=4
+
+" tab navigation
+set showtabline=2	    " always show tab pannel
+
+set scrolloff=3
+
+" search
+set ignorecase		    " case-insensitive by default
+set smartcase		    " case-sensitive if keyword contains both uppercase and lowercase
+set incsearch
+set hlsearch
+
+" use spaces for tabbing, by default
+set expandtab
+
+" listchars for whitespaces
+set list
+set listchars=tab:»\ ,trail:·,extends:>,precedes:<
+
+" wildmenu settings
+set wildmenu
+set wildmode=list:longest,full
+set wildignore=*.swp,*.swo,*.class
+
+" status line
+" set laststatus=2	    " show anytime
+
+" native customized statusline, if airline is not available
+" (this setting will be replaced afterwards by airline)
+" set statusline=%1*%{winnr()}\ %*%<\ %f\ %h%m%r%=%l,%c%V\ (%P)
+
+" mouse behaviour
+set mouse=nvc
+if !has('nvim')
+    " vim only (not in neovim)
+    set ttymouse=xterm2
+endif
+
+" encoding and line ending settings
+if !has('nvim')
+    set encoding=utf-8
+endif
+set fileencodings=utf-8,cp949,latin1
+set fileformats=unix,dos
+
+" split and autocomplete settings
+set splitbelow				    " preview window at bottom
+set completeopt=menuone,preview,longest	    " show preview and pop-up menu
+
+" no fucking swap and backup files
+set noswapfile
+set nobackup
+
+" set miscellaneous
+" set showmode
+set showcmd
+
+" set visualbell
+set history=1000
+set undolevels=1000
+
+autocmd FileType scala setlocal ts=8 sts=2 sw=2
