@@ -24,7 +24,7 @@ let g:flake8_show_in_file=1 " show
 
 " basic displays
 set number		    " show line numbers
-set ruler 
+set ruler
 
 " input settings
 set bs=indent,eol,start	    " allow backspaces over everything
@@ -93,7 +93,7 @@ set noswapfile
 set nobackup
 
 " set miscellaneous
-" set showmode
+set showmode
 set showcmd
 
 " set visualbell
