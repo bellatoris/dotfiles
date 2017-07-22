@@ -1,26 +1,41 @@
-syntax enable
+" bellator's vimrc
 
-set nocompatible	" be improved, required
-filetype off		" required
+scriptencoding utf-8
 
-" set the runtime path to include Vundel and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternativey, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
+"""""""""""""""""""""""""""""""""""""""
+" 0. Load Plugin {{{
+"""""""""""""""""""""""""""""""""""""""
+" All the vim plugins, powered by 'vim-plug', are
+" listed up in the separate file 'plugins.vim'.
+" It is for making this vimrc could also work out-of-box
+" even if not managed by dotfiles.
+if filereadable(expand("\~/.vim/plugins.vim"))
+    source \~/.vim/plugins.vim
+endif
 
-" let vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'rust-lang/rust.vim'
-" place plugin here
+" }}}
+"""""""""""""""""""""""""""""""""""""""
+" 1. General Settings
+"""""""""""""""""""""""""""""""""""""""
 
-Plugin 'https://github.com/nvie/vim-flake8'
+syntax on
+set nocompatible
 
-" All of your Plugins must be added before the following line
-call vundle#end()
-filetype plugin indent on
+" use path '~/.vim' even on non-unix machine
+set runtimepath+=~/.vim
 
-let g:flake8_show_in_file=1 " show
+" add ~/.local/bin to $PATH
+let $PATH .= ":" . expand("\~/.local/bin")
+
+" load plugins with pathogen
+try
+    runtime bundle/vim-pathogen/autoload/pathogen.vim
+    call pathogen#infect()
+catch
+endtry
+
+filetype plugin on
+filetype indent on
 
 " basic displays
 set number		    " show line numbers
@@ -30,6 +45,7 @@ set ruler
 set bs=indent,eol,start	    " allow backspaces over everything
 set autoindent
 set smartindent
+set pastetoggle=<F8>
 
 set nowrap
 set textwidth=0             " disable automatic line breaking
