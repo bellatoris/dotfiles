@@ -63,8 +63,10 @@ object Main {
       // run vim-plug installation
       "vim +PlugInstall +qall",
 
+      // set tmux configuration
+      "tmux source .tmux.conf",
       // Install tmux plugins via tpm
-      "~/.tmux/plugins/tpm/bin/install_plugins"
+      "bash .tmux/plugins/tpm/bin/install_plugins"
     )
 
     doTask(tasks)
@@ -80,13 +82,24 @@ object Main {
 
       if (Files.exists(targetPath)) {
         if (Files.isSymbolicLink(targetPath)) {
+          // unlink the target
           Files.delete(targetPath)
-          Files.createSymbolicLink(targetPath, sourcePath)
-          println(target.blue + " symlink created from ".green + sourcePath.toString().green)
+          // Files.createSymbolicLink(targetPath, sourcePath)
+          // println(target.blue + " symlink created from ".green + sourcePath.toString().green)
         } else {
           println(target.blue + " already exists but not a symbolic link".magenta)
         }
-      } else {
+      }
+
+      if (!Files.exists(targetPath)) {
+        try {
+          val targetDir = targetPath.getParent()
+          Files.createDirectory(targetDir)
+          println("Created directory: ".green + targetDir.toString().green)
+        } catch {
+          case _ => ""
+        }
+
         Files.createSymbolicLink(targetPath, sourcePath)
         println(target.blue + " symlink created from ".green + sourcePath.toString().green)
       }
@@ -96,7 +109,7 @@ object Main {
   def doAction(actions: List[String]): Unit = {
     for (action <- actions) {
       println("Execution: ".cyan + action.stripPrefix("").split("\n")(0))
-      action.!
+      Process(action, new java.io.File(System.getProperty("user.home"))).!
     }
   }
 
