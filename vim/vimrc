@@ -15,7 +15,7 @@ endif
 
 " }}}
 """""""""""""""""""""""""""""""""""""""
-" 1. General Settings
+" 1. General Settings {{{
 """""""""""""""""""""""""""""""""""""""
 
 syntax on
@@ -115,5 +115,20 @@ set showcmd
 " set visualbell
 set history=1000
 set undolevels=1000
+" }}}
 
 autocmd FileType scala setlocal ts=8 sts=2 sw=2
+
+
+""""""""""""""""""""""""""""""
+" 6. Plugin Setting {{{
+""""""""""""""""""""""""""""""
+
+" vim-easy-algin {{{
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlgin)
+"------------------------------------------------------------------}}}
+" }}}

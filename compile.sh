@@ -2,4 +2,4 @@
 
 rm -rf classes
 mkdir classes
-scalac -classpath classes/ -d classes/ setup.scala
+scalac -feature -classpath classes/ -d classes/ setup.scala
