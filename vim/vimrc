@@ -27,16 +27,6 @@ set runtimepath+=~/.vim
 " add ~/.local/bin to $PATH
 let $PATH .= ":" . expand("\~/.local/bin")
 
-" load plugins with pathogen
-try
-    runtime bundle/vim-pathogen/autoload/pathogen.vim
-    call pathogen#infect()
-catch
-endtry
-
-filetype plugin on
-filetype indent on
-
 " basic displays
 set number		    " show line numbers
 set ruler
@@ -119,6 +109,8 @@ set undolevels=1000
 
 autocmd FileType scala setlocal ts=8 sts=2 sw=2
 
+filetype plugin on
+filetype indent on
 
 """"""""""""""""""""""""""""""
 " 6. Plugin Setting {{{
