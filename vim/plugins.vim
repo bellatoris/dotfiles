@@ -13,8 +13,4 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-easy-align'
-
-
-
-Plug 'suan/vim-instant-markdown'
 call plug#end()

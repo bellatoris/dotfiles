@@ -47,7 +47,7 @@ object Main {
     val filesHere = new java.io.File(".").listFiles
     val tasks = HashMap[String, String](
       // shell
-      // "/.bashrc" -> "bashrc",
+      "/.bashrc" -> "bashrc",
 
       // vim
       "/.vimrc" -> "vim/vimrc",
@@ -61,12 +61,7 @@ object Main {
 
     val postActions = List[String](
       // run vim-plug installation
-      "vim +PlugInstall +qall",
-
-      // set tmux configuration
-      // "tmux source .tmux.conf",
-      // Install tmux plugins via tpm
-      "bash .tmux/plugins/tpm/bin/install_plugins"
+      "vim +PlugInstall +qall"
     )
 
     doTask(tasks)
