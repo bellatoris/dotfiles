@@ -70,11 +70,11 @@ set wildmode=list:longest,full
 set wildignore=*.swp,*.swo,*.class
 
 " status line
-" set laststatus=2	    " show anytime
+set laststatus=2	    " show anytime
 
 " native customized statusline, if airline is not available
 " (this setting will be replaced afterwards by airline)
-" set statusline=%1*%{winnr()}\ %*%<\ %f\ %h%m%r%=%l,%c%V\ (%P)
+set statusline=%1*%{winnr()}\ %*%<\ %f\ %h%m%r%=%l,%c%V\ (%P)
 
 " mouse behaviour
 set mouse=nvc

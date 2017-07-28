@@ -94,6 +94,7 @@ BOLD_BLUE="\033[1;34m"
 BOLD_PURPLE="\033[1;35m"
 BOLD_CYAN="\033[1;36m"
 WHITE="\033[1;39m"
+LIGHT_GREEN="\033[0;92m"
 
 git_branch() {
     local git_branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'`
