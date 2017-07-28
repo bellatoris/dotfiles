@@ -127,7 +127,7 @@ nmap ga <Plug>(EasyAlign)
 " Airline {{{
 
 " use airline, with powerline-ish theme
-" let g:airline_theme = 'bubblegum'
+" let g:airline_theme = 'luna'
 let g:airline_powerline_fonts = 1
 
 " enable tabline feature

@@ -61,7 +61,10 @@ object Main {
 
     val postActions = List[String](
       // run vim-plug installation
-      "vim +PlugInstall +qall"
+      "vim +PlugInstall +qall",
+
+      // run Powerlin fonts installation
+      "bash .dotfiles/vim/fonts/install.sh"
     )
 
     doTask(tasks)
