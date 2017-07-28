@@ -4,6 +4,10 @@ let s:darwin = has('mac')
 let g:plug_window = '-tabnew'
 
 call plug#begin('~/.vim/plugged')
+" General and Behaviour
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 
 " Integration and Interfaces
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
