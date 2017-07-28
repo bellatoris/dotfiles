@@ -78,7 +78,7 @@ object Main {
       val sourcePath = Paths.get(currentPath, source)
       val targetPath = Paths.get(System.getProperty("user.home"), target)
 
-      if (Files.isSymbolicLiknk(targetPath)) {
+      if (Files.isSymbolicLink(targetPath)) {
         // unlink the target
         Files.delete(targetPath)
       } else if (Files.exists(targetPath)) {
