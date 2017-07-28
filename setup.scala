@@ -78,13 +78,11 @@ object Main {
       val sourcePath = Paths.get(currentPath, source)
       val targetPath = Paths.get(System.getProperty("user.home"), target)
 
-      if (Files.exists(targetPath)) {
-        if (Files.isSymbolicLink(targetPath)) {
-          // unlink the target
-          Files.delete(targetPath)
-        } else {
-          println(target.blue + " already exists but not a symbolic link".magenta)
-        }
+      if (Files.isSymbolicLiknk(targetPath)) {
+        // unlink the target
+        Files.delete(targetPath)
+      } else if (Files.exists(targetPath)) {
+        println(target.blue + " already exists but not a symbolic link".magenta)
       }
 
       if (!Files.exists(targetPath)) {
