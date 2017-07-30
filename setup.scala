@@ -56,7 +56,8 @@ object Main {
 
       // tmux
       "/.tmux" -> "tmux",
-      "/.tmux.conf" -> "tmux/tmux.conf"
+      "/.tmux.conf" -> "tmux/tmux.conf",
+      "/.tmux-macOS.conf" -> "tmux/tmux-macOS.conf"
     )
 
     val postActions = List[String](
