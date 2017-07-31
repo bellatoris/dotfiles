@@ -110,6 +110,9 @@ set history=1000
 set undolevels=1000
 " }}}
 
+" ctags
+set tags=./tags;/
+
 autocmd FileType scala setlocal ts=8 sts=2 sw=2
 
 filetype plugin on

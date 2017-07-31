@@ -7,3 +7,9 @@
 * mac 에서 brew 를 깔고 brew install reattach-to-user-namespace 실행 하도록 하자, Ubuntu 의 경우 xclip 을 깔아야 함
 * mac 이랑 linux 에서 reattach-to-user-namespace 때문에 tmux.conf 에서 수동으로 comment-out 해야 하는 부분이 있음
 이 부분을 자동화 하자
+
+ctag 의 경우 ubuntu 에서는 build 해야 하므로
+
+* sudo apt-get install autoconf 
+
+를 통해 autoconf 를 설치하고, ctags dir 로 들어가서 make 해주어야 한다.

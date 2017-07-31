@@ -10,3 +10,6 @@
 [submodule "vim/fonts"]
 	path = vim/fonts
 	url = https://github.com/powerline/fonts.git
+[submodule "vim/ctags"]
+	path = vim/ctags
+	url = https://github.com/universal-ctags/ctags.git
