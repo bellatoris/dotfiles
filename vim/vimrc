@@ -122,6 +122,7 @@ filetype indent on
 " 4. Appearance (e.g. Colors, Syntax) {{{
 """""""""""""""""""""""""""""""""""""""""
 
+highlight Search        ctermfg=16
 highlight LineNr        ctermfg=248
 highlight CursorLine    cterm=none
 
@@ -137,6 +138,13 @@ highlight CursorLine    cterm=none
 """""""""""""""""""""""""""""""""""""""""
 " 6. Plugin Setting {{{
 """""""""""""""""""""""""""""""""""""""""
+
+" NerdTree {{{
+
+" filter out some files, by extensions
+let NERDTreeIgnore =['\.pyc$', '\.class$', '\.o$']
+
+"------------------------------------------------------------------}}}
 
 " vim-easy-algin {{{
 
