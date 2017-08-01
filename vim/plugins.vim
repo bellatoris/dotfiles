@@ -14,9 +14,13 @@ Plug 'morhetz/gruvbox'
 " Integration and Interfaces
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-easy-align'
+
+" Browsing
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 call plug#end()

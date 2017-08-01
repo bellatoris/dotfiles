@@ -112,6 +112,14 @@ set undolevels=1000
 
 " ctags
 set tags=./tags;/
+map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap <C-]> g<C-]>
+
+" Movement in insert mode
+inoremap <C-h> <C-o>h
+inoremap <C-l> <C-o>a
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
 
 autocmd FileType scala setlocal ts=8 sts=2 sw=2
 
@@ -147,6 +155,9 @@ augroup END
 
 " filter out some files, by extensions
 let NERDTreeIgnore =['\.pyc$', '\.class$', '\.o$']
+
+" <F10> | NERD Tree
+nnoremap <F10> :NERDTreeToggle<cr>
 
 "------------------------------------------------------------------}}}
 
@@ -188,5 +199,11 @@ let g:gruvbox_contrast_light = 'hard'
 " vim colorscheme
 colorscheme gruvbox
 
+" -----------------------------------------------------------------}}}
+" Tagbar {{{
+
+inoremap <F9> <esc>:TagbarToggle<cr>
+nnoremap <F9> :TagbarToggle<cr>
+" let g:tagbar_sort = 0
 " -----------------------------------------------------------------}}}
 " }}}
