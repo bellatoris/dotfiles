@@ -13,3 +13,6 @@ ctag 의 경우 ubuntu 에서는 build 해야 하므로
 * sudo apt-get install autoconf 
 
 를 통해 autoconf 를 설치하고, ctags dir 로 들어가서 make 해주어야 한다.
+
+* vim 8.0 을 설치해야 gruvbox 를 제대로 사용 가능, 또한 mac 의 경우 iterm2 를 사용해 주어야만 한다.
+* 설치해야 하는 파일들을 script 로 만들어서 설치시에 scala 로 설치하게 하면 좋을듯 
