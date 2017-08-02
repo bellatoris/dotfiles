@@ -48,6 +48,7 @@ object Main {
     val tasks = HashMap[String, String](
       // shell
       "/.bashrc" -> "bashrc",
+      // "/.bash_profile" -> "bash_profile",
 
       // vim
       "/.vimrc" -> "vim/vimrc",

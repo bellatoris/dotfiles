@@ -44,7 +44,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Global
-export EDITOR=nvim
+export EDITOR=vim
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
@@ -75,7 +75,7 @@ alias tmux="tmux -2"
 
 # Keymap
 if [[ $platform == 'linux' ]]; then
-    setxkbmap -option caps:ctrl_modifier
+    setxkbmap -layout us -option ctrl:nocaps
 fi
 
 ##################
@@ -129,3 +129,4 @@ else
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+

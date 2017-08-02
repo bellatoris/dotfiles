@@ -139,14 +139,23 @@ function! WinMove(key)
     endif
 endfunction
 
+" Diff with saved file
+function! DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+
 " set a map leader for more key combos
 let mapleader = ','
 
 " shortcut to save
 nmap <leader>w :w<cr>
 
-" shortcut to quit
-nmap <leader>q :q<cr>
+" shortcut to quit and diff out
+nmap <leader>q :q<cr>:diffo<cr>
 
 " shortcut to savequit
 nmap <leader>x :x<cr>
@@ -165,18 +174,23 @@ nmap <silent> <leader>bn :bn<cr>
 nmap <silent> <leader>bp :bp<cr>
 
 " clear hilighted search
-map <space> :set hlsearch! hlsearch?<cr>
+noremap <space> :set hlsearch! hlsearch?<cr>
 
 " Movement in insert mode
-imap <C-h> <C-o>h
-imap <C-l> <C-o>a
-imap <C-j> <C-o>j
-imap <C-k> <C-o>k
+inoremap <C-h> <C-o>h
+inoremap <C-l> <C-o>a
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
 
-nmap <C-w>k :call WinMove('k')<cr>
-nmap <C-w>l :call WinMove('l')<cr>
-nmap <C-w>j :call WinMove('j')<cr>
-nmap <C-w>h :call WinMove('h')<cr>
+" Window move
+nmap <silent> <C-w>k :call WinMove('k')<cr>
+nmap <silent> <C-w>l :call WinMove('l')<cr>
+nmap <silent> <C-w>j :call WinMove('j')<cr>
+nmap <silent> <C-w>h :call WinMove('h')<cr>
+
+" Cursor move in autocomplete box
+inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
 " ctag
 map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
@@ -186,23 +200,28 @@ nmap <C-]> g<C-]>
 nmap <leader>/ "fyiw :/<c-r>f<cr>
 
 " scroll the viewport faster
-" nmap <C-e> 3<C-e>
-" nmap <C-y> 3<C-y>
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
 
 " moving up and down work as you would expect
-" nmap <silent> j gj
-" nmap <silent> k gk
-" nmap <silent> ^ g^
-" nmap <silent> $ g$
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+" nnoremap <silent> ^ g^
+" nnoremap <silent> $ g$
+
+" diff with saved file
+nmap <silent> <leader>sd :call DiffWithSaved()<cr>
 
 " }}}
 """""""""""""""""""""""""""""""""""""""""
 " 4. Appearance (e.g. Colors, Syntax) {{{
 """""""""""""""""""""""""""""""""""""""""
 
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
+if (system('uname') =~ "Linux")
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
 
 " highlight Search        ctermfg=16
 " highlight LineNr        ctermfg=248
