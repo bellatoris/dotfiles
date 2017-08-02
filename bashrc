@@ -73,6 +73,11 @@ alias mv='mv -iv'
 # Tmux
 alias tmux="tmux -2"
 
+# Keymap
+if [[ $platform == 'linux' ]]; then
+    setxkbmap -option caps:ctrl_modifier
+fi
+
 ##################
 # 3. Color & PS1 #
 ##################
