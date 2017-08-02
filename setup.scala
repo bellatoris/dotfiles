@@ -54,6 +54,9 @@ object Main {
       "/.vim" -> "vim",
       "/.vim/autoload/plug.vim" -> "vim/bundle/vim-plug/plug.vim",
 
+      // NeoVIM
+      "/.config/nvim" -> "nvim",
+
       // tmux
       "/.tmux" -> "tmux",
       "/.tmux.conf" -> "tmux/tmux.conf",

@@ -10,6 +10,8 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Color
 Plug 'morhetz/gruvbox'
+" Plug 'chriskempson/base16-vim'
+" Plug 'joshdick/onedark.vim'
 
 " Integration and Interfaces
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

@@ -35,7 +35,7 @@ set ruler
 set bs=indent,eol,start	    " allow backspaces over everything
 set autoindent
 set smartindent
-set pastetoggle=<F8>
+set pastetoggle=<F8>        " existing indentation of the pasted text will be retained
 
 set nowrap
 set textwidth=0             " disable automatic line breaking
@@ -104,6 +104,7 @@ set showcmd
 
 " lazy redraw
 set lazyredraw
+set ttyfast                                 " redraw fastly
 
 " set visualbell
 set history=1000
@@ -154,10 +155,12 @@ augroup END
 " NerdTree {{{
 
 " filter out some files, by extensions
-let NERDTreeIgnore =['\.pyc$', '\.class$', '\.o$']
+let NERDTreeIgnore = ['\.pyc$', '\.class$', '\.o$']
+let NERDTreeShowHidden = 1
 
 " <F10> | NERD Tree
 nnoremap <F10> :NERDTreeToggle<cr>
+autocmd FileType nerdtree setlocal nocursorline
 
 "------------------------------------------------------------------}}}
 
@@ -204,6 +207,9 @@ colorscheme gruvbox
 
 inoremap <F9> <esc>:TagbarToggle<cr>
 nnoremap <F9> :TagbarToggle<cr>
-" let g:tagbar_sort = 0
+
+let g:tagbar_sort = 0
+autocmd FileType tagbar setlocal nocursorline
+
 " -----------------------------------------------------------------}}}
 " }}}
