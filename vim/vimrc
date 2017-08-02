@@ -35,7 +35,6 @@ set ruler
 set bs=indent,eol,start	    " allow backspaces over everything
 set autoindent
 set smartindent
-set pastetoggle=<F8>        " existing indentation of the pasted text will be retained
 
 set nowrap
 set textwidth=0             " disable automatic line breaking
@@ -109,24 +108,94 @@ set ttyfast                                 " redraw fastly
 " set visualbell
 set history=1000
 set undolevels=1000
-" }}}
 
 " ctags
 set tags=./tags;/
-map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-nnoremap <C-]> g<C-]>
-
-" Movement in insert mode
-inoremap <C-h> <C-o>h
-inoremap <C-l> <C-o>a
-inoremap <C-j> <C-o>j
-inoremap <C-k> <C-o>k
 
 autocmd FileType scala setlocal ts=8 sts=2 sw=2
 
 filetype plugin on
 filetype indent on
 
+" }}}
+"""""""""""""""""""""""""""""""""""""""""
+" 2. Keymap {{{
+"""""""""""""""""""""""""""""""""""""""""
+" Window management hotkeys
+function! WinMove(key)
+    let t:curwin = winnr()
+    exec "wincmd ".a:key
+    " Couldn't move, create a window
+    if (t:curwin == winnr())
+        " Create vertical split
+        if (match(a:key,'[jk]'))
+            wincmd v
+        " Create horizontal split
+        else
+            wincmd s
+        endif
+        " Move to the newly created window
+        exec "wincmd ".a:key
+    endif
+endfunction
+
+" set a map leader for more key combos
+let mapleader = ','
+
+" shortcut to save
+nmap <leader>w :w<cr>
+
+" shortcut to quit
+nmap <leader>q :q<cr>
+
+" shortcut to savequit
+nmap <leader>x :x<cr>
+
+" set paste toggle
+set pastetoggle=<leader>v
+
+" wipout buffer
+nmap <silent> <leader>bw :bw<cr>
+
+" close current buffer
+nmap <silent> <leader>bd :bp<bar>sp<bar>bn<bar>bd<cr>
+
+" move buffer
+nmap <silent> <leader>bn :bn<cr>
+nmap <silent> <leader>bp :bp<cr>
+
+" clear hilighted search
+map <space> :set hlsearch! hlsearch?<cr>
+
+" Movement in insert mode
+imap <C-h> <C-o>h
+imap <C-l> <C-o>a
+imap <C-j> <C-o>j
+imap <C-k> <C-o>k
+
+nmap <C-w>k :call WinMove('k')<cr>
+nmap <C-w>l :call WinMove('l')<cr>
+nmap <C-w>j :call WinMove('j')<cr>
+nmap <C-w>h :call WinMove('h')<cr>
+
+" ctag
+map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nmap <C-]> g<C-]>
+
+" search for word under the cursor
+nmap <leader>/ "fyiw :/<c-r>f<cr>
+
+" scroll the viewport faster
+" nmap <C-e> 3<C-e>
+" nmap <C-y> 3<C-y>
+
+" moving up and down work as you would expect
+" nmap <silent> j gj
+" nmap <silent> k gk
+" nmap <silent> ^ g^
+" nmap <silent> $ g$
+
+" }}}
 """""""""""""""""""""""""""""""""""""""""
 " 4. Appearance (e.g. Colors, Syntax) {{{
 """""""""""""""""""""""""""""""""""""""""
@@ -151,16 +220,46 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""
 " 6. Plugin Setting {{{
 """""""""""""""""""""""""""""""""""""""""
+" FZF {{{
 
+if isdirectory(".git")
+    " if in a git project, use :GFiles
+    nmap <silent> <leader>t :GFiles<cr>
+else 
+    " otherwise, use :FZF
+    nmap <silent> <leader>t :FZF<cr>
+endif
+
+nmap <silent> <leader>f :Ag <c-r><c-w><cr>
+
+"------------------------------------------------------------------}}}
+" Fugitive {{{
+
+nmap <silent> <leader>gs :Gstatus<cr>
+nmap <leader>ge :Gedit<cr>
+nmap <silent> <leader>gr :Gread<cr>
+nmap <silent> <leader>gb :Gblame<cr>
+nmap <silent> <leader>gd :Gvdiff<cr>
+
+"------------------------------------------------------------------}}}
+" GV {{{
+
+nmap <silent> <leader>gv :GV<cr>
+
+"------------------------------------------------------------------}}}
 " NerdTree {{{
 
 " filter out some files, by extensions
 let NERDTreeIgnore = ['\.pyc$', '\.class$', '\.o$']
 let NERDTreeShowHidden = 1
 
-" <F10> | NERD Tree
-nnoremap <F10> :NERDTreeToggle<cr>
+" NERD Tree
+nmap <silent> <leader>k :NERDTreeToggle<cr>
+" expand to the path of the file in the current buffer
+nmap <silent> <leader>y :NERDTreeFind<cr>
+
 autocmd FileType nerdtree setlocal nocursorline
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "------------------------------------------------------------------}}}
 
@@ -205,10 +304,12 @@ colorscheme gruvbox
 " -----------------------------------------------------------------}}}
 " Tagbar {{{
 
-inoremap <F9> <esc>:TagbarToggle<cr>
-nnoremap <F9> :TagbarToggle<cr>
+nmap <silent> <leader>jo :TagbarOpen fj<cr>
+nmap <silent> <leader>jc :TagbarClose<cr>
 
 let g:tagbar_sort = 0
+let g:tagbar_iconchars = ['▸', '▾']
+
 autocmd FileType tagbar setlocal nocursorline
 
 " -----------------------------------------------------------------}}}
