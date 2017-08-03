@@ -75,7 +75,8 @@ alias tmux="tmux -2"
 
 # Keymap
 if [[ $platform == 'linux' ]]; then
-    setxkbmap -layout us -option ctrl:nocaps
+#    setxkbmap -option ctrl:nocaps
+    localectl --no-convert set-x11-keymap us pc105 "" ctrl:nocaps
 fi
 
 ##################
