@@ -313,14 +313,14 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 1
 set background=dark
 
 " changes dark mode contrast
-let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_dark = 'soft'
 " changes light mode contrast
-let g:gruvbox_contrast_light = 'hard'
+let g:gruvbox_contrast_light = 'soft'
 
 " vim colorscheme
 colorscheme gruvbox
 
-" -----------------------------------------------------------------}}}
+"------------------------------------------------------------------}}}
 " Tagbar {{{
 
 nmap <silent> <leader>jo :TagbarOpen fj<cr>
@@ -332,4 +332,10 @@ let g:tagbar_iconchars = ['▸', '▾']
 autocmd FileType tagbar setlocal nocursorline
 
 " -----------------------------------------------------------------}}}
+" EditorConfig {{{
+let g:EditorConfig_exclude_patterns=['fugitive://.*']
+"------------------------------------------------------------------}}}
+" Flake8 {{{
+autocmd FileType python map <buffer> <leader>p :call Flake8()<cr>
+"------------------------------------------------------------------}}}
 " }}}

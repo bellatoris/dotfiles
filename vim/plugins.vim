@@ -19,6 +19,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'nvie/vim-flake8'
 
 " Browsing
 Plug 'majutsushi/tagbar'
