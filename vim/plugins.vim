@@ -27,4 +27,7 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+" Rust
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
