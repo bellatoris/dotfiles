@@ -30,4 +30,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Rust
 Plug 'rust-lang/rust.vim'
 
+" Kotlin
+Plug 'udalov/kotlin-vim'
+
 call plug#end()
