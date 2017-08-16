@@ -148,14 +148,29 @@ function! DiffWithSaved()
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 
+" Diff Toggle
+function! DiffToggle()
+    if &diff
+        diffoff
+    else
+        diffthis
+    endif
+endfunction
+
 " set a map leader for more key combos
 let mapleader = ','
 
 " shortcut to save
 nmap <leader>w :w<cr>
 
-" shortcut to quit and diff out
-nmap <leader>q :q<cr>:diffo<cr>
+" shorcut to quit
+nmap <leader>q :q<cr>
+
+" shortcut to diff toggle
+nmap <leader>dd :call DiffToggle()<cr>
+
+" shortcut to diff get
+nmap <leader>dg :diffget<cr>
 
 " shortcut to savequit
 nmap <leader>x :x<cr>

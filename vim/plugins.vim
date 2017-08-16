@@ -33,4 +33,7 @@ Plug 'rust-lang/rust.vim'
 " Kotlin
 Plug 'udalov/kotlin-vim'
 
+" TypeScript
+Plug 'leafgarland/typescript-vim'
+
 call plug#end()
