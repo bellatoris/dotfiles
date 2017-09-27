@@ -23,7 +23,6 @@ set nocompatible
 
 " use path '~/.vim' even on non-unix machine
 set runtimepath+=~/.vim
-
 " add ~/.local/bin to $PATH
 let $PATH .= ":" . expand("\~/.local/bin")
 
@@ -38,7 +37,10 @@ set smartindent
 
 set nowrap
 set textwidth=0             " disable automatic line breaking
-set cursorline
+
+if has("gui_vimr")
+    set cursorline
+endif
 
 " tabsettings
 set tabstop=8
@@ -235,21 +237,19 @@ nmap <silent> <leader>sd :call DiffWithSaved()<cr>
 """""""""""""""""""""""""""""""""""""""""
 
 " if (system('uname') =~ "Linux")
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
+"     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"     set termguicolors
 " endif
 
-" highlight Search        ctermfg=16
-" highlight LineNr        ctermfg=248
-" highlight CursorLine    cterm=none
-
-" show cursorline for active window only
-augroup NrHighlight
-    autocmd!
-    autocmd VimEnter,WinEnter,BufEnter * setlocal cursorline
-    autocmd WinLeave * setlocal nocursorline
-augroup END
+if has("gui_vimr")
+    " show cursorline for active window only
+    augroup NrHighlight
+        autocmd!
+        autocmd VimEnter,WinEnter,BufEnter * setlocal cursorline
+        autocmd WinLeave * setlocal nocursorline
+    augroup END
+endif
 
 " }}}
 
@@ -326,16 +326,18 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 1
 "------------------------------------------------------------------}}}
 " Gruvbox {{{
 
-" setting background mode: dark or light
-set background=dark
+if has("gui_vimr")
+    " setting background mode: dark or light
+    " set background=dark
 
-" changes dark mode contrast
-let g:gruvbox_contrast_dark = 'soft'
-" changes light mode contrast
-let g:gruvbox_contrast_light = 'soft'
+    " changes dark mode contrast
+    " let g:gruvbox_contrast_dark = 'soft'
+    " changes light mode contrast
+    " let g:gruvbox_contrast_light = 'soft'
 
-" vim colorscheme
-colorscheme gruvbox
+    " vim colorscheme
+    colorscheme gruvbox
+endif
 
 "------------------------------------------------------------------}}}
 " Tagbar {{{
