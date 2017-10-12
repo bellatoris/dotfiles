@@ -38,7 +38,7 @@ set smartindent
 set nowrap
 set textwidth=0             " disable automatic line breaking
 
-if has("gui_vimr")
+if has("gui_vimr") || (has("gui_running") && has("gui_gtk3"))
     set cursorline
 endif
 
@@ -242,7 +242,7 @@ nmap <silent> <leader>sd :call DiffWithSaved()<cr>
 "     set termguicolors
 " endif
 
-if has("gui_vimr")
+if has("gui_vimr") || (has("gui_running") && has("gui_gtk3"))
     " show cursorline for active window only
     augroup NrHighlight
         autocmd!
@@ -326,7 +326,7 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 1
 "------------------------------------------------------------------}}}
 " Gruvbox {{{
 
-if has("gui_vimr")
+if has("gui_vimr") || (has("gui_running") && has("gui_gtk3"))
     " setting background mode: dark or light
     " set background=dark
 
@@ -358,3 +358,9 @@ let g:EditorConfig_exclude_patterns=['fugitive://.*']
 autocmd FileType python map <buffer> <leader>p :call Flake8()<cr>
 "------------------------------------------------------------------}}}
 " }}}
+"
+if has("gui_running")
+  if has("gui_gtk3")
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Regular\ 12
+  endif
+endif
