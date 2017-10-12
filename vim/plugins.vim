@@ -27,6 +27,9 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+" Scala
+Plug 'derekwyatt/vim-scala'
+
 " Rust
 Plug 'rust-lang/rust.vim'
 
