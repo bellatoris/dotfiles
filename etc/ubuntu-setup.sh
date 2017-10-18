@@ -70,7 +70,7 @@ install_all() {
     install_essential_packages
     install_python_packages
     install_latest_tmux
-    install_ppa_vim8
+    # install_ppa_vim8
     install_neovim
     install_ppa_git
 }

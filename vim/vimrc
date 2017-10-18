@@ -38,7 +38,7 @@ set smartindent
 set nowrap
 set textwidth=0             " disable automatic line breaking
 
-if has("gui_vimr") || (has("gui_running") && has("gui_gtk3"))
+if has("gui_vimr") || (has("gui_running") && has("gui_gtk2"))
     set cursorline
 endif
 
@@ -242,7 +242,7 @@ nmap <silent> <leader>sd :call DiffWithSaved()<cr>
 "     set termguicolors
 " endif
 
-if has("gui_vimr") || (has("gui_running") && has("gui_gtk3"))
+if has("gui_vimr") || (has("gui_running") && has("gui_gtk2"))
     " show cursorline for active window only
     augroup NrHighlight
         autocmd!
@@ -260,14 +260,13 @@ endif
 
 if isdirectory(".git")
     " if in a git project, use :GFiles
-    nmap <silent> <leader>t :GFiles<cr>
+    nmap <silent> <leader>r :GFiles<cr>
 else 
     " otherwise, use :FZF
-    nmap <silent> <leader>t :FZF<cr>
+    nmap <silent> <leader>r :FZF<cr>
 endif
 
 nmap <silent> <leader>f :Ag <c-r><c-w><cr>
-
 "------------------------------------------------------------------}}}
 " Fugitive {{{
 
@@ -326,7 +325,7 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 1
 "------------------------------------------------------------------}}}
 " Gruvbox {{{
 
-if has("gui_vimr") || (has("gui_running") && has("gui_gtk3"))
+if has("gui_vimr") || (has("gui_running") && has("gui_gtk2"))
     " setting background mode: dark or light
     " set background=dark
 
@@ -357,10 +356,14 @@ let g:EditorConfig_exclude_patterns=['fugitive://.*']
 " Flake8 {{{
 autocmd FileType python map <buffer> <leader>p :call Flake8()<cr>
 "------------------------------------------------------------------}}}
+" Ensime {{{
+nnoremap <leader>t :EnType<CR>
+au FileType scala nnoremap <leader>df :EnDeclaration<CR>
+"------------------------------------------------------------------}}}
 " }}}
 "
 if has("gui_running")
-  if has("gui_gtk3")
+  if has("gui_gtk2")
     set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Regular\ 12
   endif
 endif
