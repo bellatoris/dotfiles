@@ -120,7 +120,7 @@ git_branch() {
     echo -en "$color_stat$git_branch"
 }
 
-PS1="\[$WHITE\]\u\[$BOLD_GREEN\]@\[$BOLD_RED\]\h:\[$WHITE\]\w "'`git_branch`'" \[$GRAY\]\t\n\[$BOLD_GREEN\]"'\$'"\[$COLOR_NONE\] "
+PS1="\[$WHITE\]\u\[$BOLD_GREEN\]@\[$BOLD_RED\]\h:\[$WHITE\]\w\[$BLUE\]$(__docker_machine_ps1) "'`git_branch`'" \[$GRAY\]\t\n\[$BOLD_GREEN\]"'\$'"\[$COLOR_NONE\] "
 
 # screen-256color if inside tmux, xterm-256color otherwise
 if [[ -n "$TMUX" ]]; then
