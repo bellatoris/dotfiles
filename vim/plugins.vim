@@ -40,4 +40,7 @@ Plug 'udalov/kotlin-vim'
 " TypeScript
 Plug 'leafgarland/typescript-vim'
 
+" Commentary
+Plug 'tpope/vim-commentary'
+
 call plug#end()
