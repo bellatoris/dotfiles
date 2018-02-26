@@ -26,7 +26,7 @@ install_ppa_git() {
     # https://launchpad.net/~git-core/+archive/ubuntu/ppa
     sudo add-apt-repository -y ppa:git-core/ppa
     sudo apt-get update
-    sudo apt-get install -y git-all git-extras
+    sudo apt-get install -y git
 }
 
 install_ppa_vim8() {
