@@ -29,7 +29,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Scala
 Plug 'derekwyatt/vim-scala'
-Plug 'ensime/ensime-vim'
+" Plug 'ensime/ensime-vim'
 
 " Rust
 Plug 'rust-lang/rust.vim'
