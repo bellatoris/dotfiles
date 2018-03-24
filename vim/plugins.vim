@@ -21,6 +21,8 @@ Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'nvie/vim-flake8'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 " Browsing
 Plug 'majutsushi/tagbar'
