@@ -217,6 +217,8 @@ nmap <C-]> g<C-]>
 
 " search for word under the cursor
 nmap <leader>/ "fyiw :/<c-r>f<cr>
+" search for selected word in visual mode
+vmap <leader>/ y/<C-R>0<CR>
 
 " scroll the viewport faster
 nnoremap <C-e> 3<C-e>
@@ -225,8 +227,8 @@ nnoremap <C-y> 3<C-y>
 " moving up and down work as you would expect
 nnoremap <silent> j gj
 nnoremap <silent> k gk
-" nnoremap <silent> ^ g^
-" nnoremap <silent> $ g$
+nnoremap <silent> ^ g^
+nnoremap <silent> $ g$
 
 " diff with saved file
 nmap <silent> <leader>sd :call DiffWithSaved()<cr>

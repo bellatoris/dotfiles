@@ -43,4 +43,7 @@ Plug 'leafgarland/typescript-vim'
 " Commentary
 Plug 'tpope/vim-commentary'
 
+" Jenkinsfile
+Plug 'martinda/Jenkinsfile-vim-syntax'
+
 call plug#end()
