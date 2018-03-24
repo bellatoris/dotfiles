@@ -133,4 +133,11 @@ else
     export TERM='xterm-256color'
 fi
 
+##################
+# 4. Plugin      #
+##################
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+eval "$(fasd --init auto)"
+
