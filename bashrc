@@ -140,4 +140,5 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 eval "$(fasd --init auto)"
-
+alias v='f -e vim'
+_fasd_bash_hook_cmd_complete v
