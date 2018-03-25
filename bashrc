@@ -141,4 +141,5 @@ fi
 
 eval "$(fasd --init auto)"
 alias v='f -e vim'
-_fasd_bash_hook_cmd_complete v
+alias vr='f -e vimr'
+_fasd_bash_hook_cmd_complete v vr
