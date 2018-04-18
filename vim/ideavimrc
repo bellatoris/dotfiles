@@ -1,0 +1,38 @@
+" search
+set ignorecase		    " case-insensitive by default
+set smartcase		    " case-sensitive if keyword contains both uppercase and lowercase
+set incsearch
+
+" surround
+set surround
+
+" history
+set history=10000
+set undolevels=10000
+
+" set a map leader for more key combos
+let mapleader = ','
+
+" shortcut to save
+nmap <leader>w :w<cr>
+
+" shorcut to quit
+nmap <leader>q :q<cr>
+
+" shortcut to savequit
+nmap <leader>x :x<cr>
+
+" search for word under the cursor
+nmap <leader>/ "fyiw :/<c-r>f<cr>
+" search for selected word in visual mode
+vmap <leader>/ y/<C-R>0<CR>
+
+" scroll the viewport faster
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+" moving up and down work as you would expect
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+nnoremap <silent> ^ g^
+nnoremap <silent> $ g$

@@ -108,8 +108,8 @@ set lazyredraw
 set ttyfast                                 " redraw fastly
 
 " set visualbell
-set history=1000
-set undolevels=1000
+set history=10000
+set undolevels=10000
 
 " ctags
 set tags=./tags;/
