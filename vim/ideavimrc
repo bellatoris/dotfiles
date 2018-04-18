@@ -38,4 +38,4 @@ nnoremap <silent> ^ g^
 nnoremap <silent> $ g$
 
 " clear hilighted search
-noremap <space> :set hlsearch! hlsearch?<cr>
+noremap <space> :set hlsearch!<CR>
