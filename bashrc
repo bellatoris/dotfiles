@@ -79,6 +79,9 @@ if [[ $platform == 'linux' ]]; then
     localectl --no-convert set-x11-keymap us pc105 "" ctrl:nocaps
 fi
 
+# VBoxManage
+alias vbm="VBoxManage"
+
 ##################
 # 3. Color & PS1 #
 ##################
