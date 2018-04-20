@@ -54,6 +54,7 @@ object Main {
       "/.vimrc" -> "vim/vimrc",
       "/.vim" -> "vim",
       "/.vim/autoload/plug.vim" -> "vim/bundle/vim-plug/plug.vim",
+      "/.ideavimrc" -> "vim/ideavimrc",
 
       // NeoVIM
       "/.config/nvim" -> "nvim",
