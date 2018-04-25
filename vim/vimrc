@@ -238,11 +238,15 @@ nmap <silent> <leader>sd :call DiffWithSaved()<cr>
 " 4. Appearance (e.g. Colors, Syntax) {{{
 """""""""""""""""""""""""""""""""""""""""
 
-" if (system('uname') =~ "Linux")
-"     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"     set termguicolors
-" endif
+if (system('uname') =~ "Linux")
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
+
+if has('nvim')
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
 
 if has("gui_vimr") || has("gui_running")
     " show cursorline for active window only
