@@ -70,7 +70,10 @@ object Main {
       "vim +PlugInstall +qall",
 
       // run Powerlin fonts installation
-      "bash .dotfiles/vim/fonts/install.sh"
+      "bash .dotfiles/vim/fonts/install.sh",
+
+      // install fzf
+      "bash .fzf/install --all"
     )
 
     doTask(tasks)
