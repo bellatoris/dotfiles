@@ -111,7 +111,7 @@ object Main {
     for (action <- actions) {
       println("Execution: ".cyan + action.stripMargin.split("\n")(0))
       val homeDir = new java.io.File(System.getProperty("user.home"))
-      val result = Process(action, homeDir).!!
+      val result = Process(action, homeDir).!!<
       println(result)
     }
   }
