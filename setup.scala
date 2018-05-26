@@ -70,7 +70,10 @@ object Main {
       "vim +PlugInstall +qall",
 
       // run Powerlin fonts installation
-      "bash .dotfiles/vim/fonts/install.sh"
+      "bash .dotfiles/vim/fonts/install.sh",
+
+      // install fzf
+      "bash .fzf/install --all"
     )
 
     doTask(tasks)
@@ -108,11 +111,11 @@ object Main {
   }
 
   def doAction(actions: List[String]): Unit = {
+    val logger = ProcessLogger(println, println)
     for (action <- actions) {
       println("Execution: ".cyan + action.stripMargin.split("\n")(0))
       val homeDir = new java.io.File(System.getProperty("user.home"))
-      val result = Process(action, homeDir).!!
-      println(result)
+      Process(action, homeDir).!!<(logger)
     }
   }
 
