@@ -17,16 +17,7 @@ fi
 # history settings
 
 # don't put duplicate lines or lines starting with space in the history.
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# append history immediately
-PROMPT_COMMAND='history -a'
-
-# set multiline history setting
-shopt -s cmdhist lithist
+HISTCONTROL=ignoreboth:erasedups
 
 # for setting history length
 HISTSIZE=100000
@@ -34,6 +25,15 @@ HISTFILESIZE=200000
 
 # for setting multi line history
 HISTTIMEFORMAT='%F %T '
+
+# append history immediately
+PROMPT_COMMAND='history -a; history -c; history -r'
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# set multiline history setting
+shopt -s cmdhist lithist
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
