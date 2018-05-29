@@ -257,6 +257,10 @@ if has("gui_vimr") || has("gui_running")
     augroup END
 endif
 
+if has("gui_running")
+    set guifont=Space\ Mono\ for\ Powerline\ Regular\ 12
+endif
+
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""
@@ -368,6 +372,3 @@ au FileType scala nnoremap <leader>df :EnDeclaration<CR>
 "------------------------------------------------------------------}}}
 " }}}
 
-if has("gui_running")
-    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Regular\ 12
-endif

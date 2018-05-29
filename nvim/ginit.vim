@@ -6,6 +6,6 @@ if exists('g:GuiLoaded')
         autocmd WinLeave * setlocal nocursorline
     augroup END
 
-    colorscheme gruvbox
-    GuiFont Ubuntu Mono derivative Powerline:h12
+    colorscheme desert
+    Guifont Space Mono for Powerline:h11
 endif
