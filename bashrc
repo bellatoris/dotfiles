@@ -149,7 +149,10 @@ fi
 # 4. Plugin      #
 ##################
 
+# FZF
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.fzf-git.sh ] && source ~/.fzf-git.sh
+export FZF_DEFAULT_OPTS='--border'
 
 eval "$(fasd --init auto)"
 alias v='f -e vim'
