@@ -195,6 +195,9 @@ nmap <silent> <leader>bd :bp<bar>sp<bar>bn<bar>bd<cr>
 nmap <silent> <leader>bn :bn<cr>
 nmap <silent> <leader>bp :bp<cr>
 
+" Buffers
+nmap <silent> <leader>B :Buffers<cr>
+
 " clear hilighted search
 noremap <space> :set hlsearch! hlsearch?<cr>
 
