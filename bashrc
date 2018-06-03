@@ -45,6 +45,11 @@ shopt -s checkwinsize
 # Bash completion
 [ -f /etc/bash_completion ] && . /etc/bash_completion
 
+# Bash completion for macOS
+if [ -n "$(which brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like 
 # ~/.bash_aliases, instead of adding them here directly.
@@ -64,7 +69,7 @@ export LC_ALL=en_US.UTF-8
 # ls color and with classification
 if [[ $platform == 'mac' ]]; then
     alias ls='ls -F -G'
-else 
+else
     alias ls='ls -F --color=auto'
 fi
 alias ll='ls -alF'
@@ -81,12 +86,6 @@ alias mv='mv -iv'
 
 # Tmux
 alias tmux="tmux -2"
-
-# Keymap
-if [[ $platform == 'linux' ]]; then
-#    setxkbmap -option ctrl:nocaps
-    localectl --no-convert set-x11-keymap us pc105 "" ctrl:nocaps
-fi
 
 # VBoxManage
 alias vbm="VBoxManage"
@@ -141,7 +140,7 @@ PS1="\[$WHITE\]\u\[$BOLD_GREEN\]@\[$BOLD_RED\]\h:\[$WHITE\]\w\[$BLUE\]"'`docker_
 # screen-256color if inside tmux, xterm-256color otherwise
 if [[ -n "$TMUX" ]]; then
     export TERM='screen-256color'
-else 
+else
     export TERM='xterm-256color'
 fi
 
@@ -150,10 +149,13 @@ fi
 ##################
 
 # FZF
+# This command must be placed after sourcing bash completion
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.fzf-git.sh ] && source ~/.fzf-git.sh
+
 export FZF_DEFAULT_OPTS='--border'
 
+# fasd
 eval "$(fasd --init auto)"
 alias v='f -e vim'
 
