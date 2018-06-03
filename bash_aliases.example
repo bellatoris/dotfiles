@@ -1,0 +1,25 @@
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-10.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/
+PAtH=$JAVA_HOME/bin:$PATH
+export MAVEN_HOME=$HOME/dg/apache-maven-3.5.3/
+PATH=$MAVEN_HOME/bin:$PATH
+export SCALA_HOME=$HOME/dg/scala-2.12.5
+PATH=$SCALA_HOME/bin:$PATH
+export VIMR_HOME=$HOME/dg/vimr
+PATH=$VIMR_HOME:$PATH
+export BERKELEYDB_DIR=/usr/local/BerkeleyDB.6.2
+PATH=$BERKELEYDB_DIR/bin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 2.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
