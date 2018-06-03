@@ -156,5 +156,10 @@ export FZF_DEFAULT_OPTS='--border'
 
 eval "$(fasd --init auto)"
 alias v='f -e vim'
-alias vr='f -e vimr'
-_fasd_bash_hook_cmd_complete v vr
+
+if [ -n "$(which vimr)" ]; then
+    alias vr='f -e vimr'
+    _fasd_bash_hook_cmd_complete v vr
+else
+    _fasd_bash_hook_cmd_complete v
+fi
