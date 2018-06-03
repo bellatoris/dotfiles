@@ -124,6 +124,7 @@ filetype indent on
 " python settings
 let g:python_host_prog = "/Library/Frameworks/Python.framework/Versions/2.7/bin/python2"
 let g:python3_host_prog = "/Library/Frameworks/Python.framework/Versions/3.6/bin/python3"
+
 " }}}
 """""""""""""""""""""""""""""""""""""""""
 " 2. Keymap {{{
@@ -254,17 +255,15 @@ if has('nvim')
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
-if has("gui_vimr") || has("gui_running")
+if has("gui_vimr")
     " show cursorline for active window only
     augroup NrHighlight
         autocmd!
         autocmd VimEnter,WinEnter,BufEnter * setlocal cursorline
         autocmd WinLeave * setlocal nocursorline
     augroup END
-endif
 
-if has("gui_running")
-    set guifont=Space\ Mono\ for\ Powerline\ Regular\ 12
+    colorscheme desert
 endif
 
 " }}}
@@ -341,7 +340,7 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 1
 "------------------------------------------------------------------}}}
 " Gruvbox {{{
 
-if has("gui_vimr") || has("gui_running")
+" if has("gui_vimr")
     " setting background mode: dark or light
     " set background=dark
 
@@ -351,8 +350,8 @@ if has("gui_vimr") || has("gui_running")
     " let g:gruvbox_contrast_light = 'soft'
 
     " vim colorscheme
-    colorscheme desert
-endif
+    " colorscheme gruvbox
+" endif
 
 "------------------------------------------------------------------}}}
 " Tagbar {{{
