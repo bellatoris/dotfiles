@@ -206,10 +206,10 @@ nmap <silent> <leader>B :Buffers<cr>
 noremap <space> :set hlsearch! hlsearch?<cr>
 
 " Movement in insert mode
-inoremap <C-h> <C-o>h
-inoremap <C-l> <C-o>a
-inoremap <C-j> <C-o>j
-inoremap <C-k> <C-o>k
+" inoremap <C-h> <C-o>h
+" inoremap <C-l> <C-o>a
+" inoremap <C-j> <C-o>j
+" inoremap <C-k> <C-o>k
 
 " Window move
 nmap <silent> <C-w>k :call WinMove('k')<cr>
