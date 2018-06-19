@@ -58,7 +58,12 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Global
-export EDITOR=vim
+if [ -n "$(which nvim)" ]; then
+  export EDITOR=nvim
+else
+  export EDITOR=vim
+fi
+
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
