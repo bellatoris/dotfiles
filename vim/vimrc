@@ -38,7 +38,7 @@ set smartindent
 set nowrap
 set textwidth=0             " disable automatic line breaking
 
-if has("gui_vimr") || has("gui_running")
+if has("gui_vimr") || has("gui_macvim")
     set cursorline
 endif
 
@@ -258,7 +258,7 @@ if has('nvim')
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
-if has("gui_vimr")
+if has("gui_vimr") || has("gui_macvim")
     " show cursorline for active window only
     augroup NrHighlight
         autocmd!
@@ -270,7 +270,6 @@ if has("gui_vimr")
 endif
 
 if has("gui_macvim")
-    colorscheme desert
     set guifont=Space\ Mono\ for\ Powerline:h14
 endif
 
