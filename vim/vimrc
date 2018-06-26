@@ -269,6 +269,11 @@ if has("gui_vimr")
     colorscheme desert
 endif
 
+if has("gui_macvim")
+    colorscheme desert
+    set guifont=Space\ Mono\ for\ Powerline:h14
+endif
+
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""
