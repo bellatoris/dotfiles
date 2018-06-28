@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
 " General and Behaviour
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 
 " Color
 Plug 'morhetz/gruvbox'
