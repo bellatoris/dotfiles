@@ -4,14 +4,14 @@
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return ;;
+	*i*) ;;
+	  *) return ;;
 esac
 
 # Platform detection
 platform='linux'
 if [[ `uname` == 'Darwin' ]]; then
-    platform='mac'
+	platform='mac'
 fi
 
 # history settings
@@ -47,14 +47,14 @@ shopt -s checkwinsize
 
 # Bash completion for macOS
 if [ -n "$(which brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
+	. $(brew --prefix)/etc/bash_completion
 fi
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like 
 # ~/.bash_aliases, instead of adding them here directly.
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+	. ~/.bash_aliases
 fi
 
 # Global
@@ -73,9 +73,9 @@ export LC_ALL=en_US.UTF-8
 
 # ls color and with classification
 if [[ $platform == 'mac' ]]; then
-    alias ls='ls -F -G'
+	alias ls='ls -F -G'
 else
-    alias ls='ls -F --color=auto'
+	alias ls='ls -F --color=auto'
 fi
 alias ll='ls -alF'
 
@@ -119,38 +119,52 @@ WHITE="\033[1;39m"
 LIGHT_GREEN="\033[0;92m"
 
 git_branch() {
-    local git_branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'`
-    local git_stat="`git status -unormal 2>&1`"
+	local git_branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'`
+	local git_stat="`git status -unormal 2>&1`"
 
-    local color_stat=''
-    if [[ "$git_stat" =~ "nothing to commit" ]]; then
-        color_stat="$GREEN"
-    elif [[ "$git_stat" =~ "nothing added to commit but untracked files present" ]]; then
-        color_stat="$LIGHT_GREEN"
-    elif [[ "$git_stat" =~ "# Untracked files:" ]]; then
-        color_stat="$YELLOW"
-    else
-        color_stat="$RED"
-    fi
+	local color_stat=''
+	if [[ "$git_stat" =~ "nothing to commit" ]]; then
+		color_stat="$GREEN"
+	elif [[ "$git_stat" =~ "nothing added to commit but untracked files present" ]]; then
+		color_stat="$LIGHT_GREEN"
+	elif [[ "$git_stat" =~ "# Untracked files:" ]]; then
+		color_stat="$YELLOW"
+	else
+		color_stat="$RED"
+	fi
 
-    echo -en "$color_stat$git_branch"
+	echo -en "$color_stat$git_branch"
 }
 
-docker_machine() {
-    echo -en "$(__docker_machine_ps1)"
+has_docker_machine() {
+	if [[ -n "$(type -t __docker_machine_ps1)" ]]; then
+		echo -en "$(__docker_machine_ps1)"
+	fi
 }
 
-PS1="\[$WHITE\]\u\[$BOLD_GREEN\]@\[$BOLD_RED\]\h:\[$WHITE\]\w\[$BLUE\]"'`docker_machine`'" "'`git_branch`'" \[$GRAY\]\t\n\[$BOLD_GREEN\]"'\$'"\[$COLOR_NONE\] "
+if [[ -n "$(type -t __git_ps1)" ]];  then
+	export GIT_PS1_SHOWDIRTYSTATE=1
+	export GIT_PS1_SHOWSTASHSTATE=1
+	export GIT_PS1_SHOWCOLORHINTS=1
+	export GIT_PS1_SHOWUNTRACKEDFILES=1
+	export GIT_PS1_SHOWUPSTREAM="auto verbose"
+	export PROMPT_COMMAND="${PROMPT_COMMAND};"'__git_ps1 \
+"\[$WHITE\]\u\[$BOLD_GREEN\]@\[$BOLD_RED\]\h:\[$WHITE\]\w\[$BLUE\]$(has_docker_machine)\[$COLOR_NONE\]" \
+" \[$GRAY\]\t\n\[$BOLD_GREEN\]\$\[$COLOR_NONE\] "'
+else
+	export PS1="\[$WHITE\]\u\[$BOLD_GREEN\]@\[$BOLD_RED\]\h:\[$WHITE\]\w\[$BLUE\]\
+	$(has_docker_machine) $(git_branch) \[$GRAY\]\t\n\[$BOLD_GREEN\]\$\[$COLOR_NONE\] "
+fi
 
 # screen-256color if inside tmux, xterm-256color otherwise
 if [[ -n "$TMUX" ]]; then
-    export TERM='screen-256color'
+	export TERM='screen-256color'
 else
-    export TERM='xterm-256color'
+	export TERM='xterm-256color'
 fi
 
 ##################
-# 4. Plugin      #
+# 4. Plugin		 #
 ##################
 
 # FZF
@@ -165,8 +179,8 @@ eval "$(fasd --init auto)"
 alias v='f -e vim'
 
 if [ -n "$(which vimr)" ]; then
-    alias vr='f -e vimr'
-    _fasd_bash_hook_cmd_complete v vr
+	alias vr='f -e vimr'
+	_fasd_bash_hook_cmd_complete v vr
 else
-    _fasd_bash_hook_cmd_complete v
+	_fasd_bash_hook_cmd_complete v
 fi
