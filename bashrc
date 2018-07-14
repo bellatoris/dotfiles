@@ -150,7 +150,7 @@ if [[ -n "$(type -t __git_ps1)" ]];  then
 	export GIT_PS1_SHOWUPSTREAM="auto verbose"
 	export PROMPT_COMMAND="${PROMPT_COMMAND};"'__git_ps1 \
 "\[$WHITE\]\u\[$BOLD_GREEN\]@\[$BOLD_RED\]\h:\[$WHITE\]\w\[$BLUE\]$(has_docker_machine)\[$COLOR_NONE\]" \
-" \[$GRAY\]\t\n\[$BOLD_GREEN\]\$\[$COLOR_NONE\] "'
+" \[$GRAY\]\t\n\[$BOLD_GREEN\]\\\$\[$COLOR_NONE\] "'
 else
 	export PS1="\[$WHITE\]\u\[$BOLD_GREEN\]@\[$BOLD_RED\]\h:\[$WHITE\]\w\[$BLUE\]\
 	$(has_docker_machine) $(git_branch) \[$GRAY\]\t\n\[$BOLD_GREEN\]\$\[$COLOR_NONE\] "
