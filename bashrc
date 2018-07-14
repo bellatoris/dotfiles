@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 case $- in
 	*i*) ;;
-	  *) return ;;
+	*) return ;;
 esac
 
 # Platform detection
@@ -51,7 +51,7 @@ if [ -n "$(which brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # Alias definitions.
-# You may want to put all your additions into a separate file like 
+# You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
@@ -59,9 +59,9 @@ fi
 
 # Global
 if [ -n "$(which nvim)" ]; then
-  export EDITOR=nvim
+	export EDITOR=nvim
 else
-  export EDITOR=vim
+	export EDITOR=vim
 fi
 
 export LANG=en_US.UTF-8
