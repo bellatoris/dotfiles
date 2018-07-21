@@ -142,6 +142,14 @@ has_docker_machine() {
 	fi
 }
 
+in_virtual_env() {
+	if [[ -n "${VIRTUAL_ENV}" ]]; then
+		if [[ "x" = x ]] ; then
+			echo -en "($(basename ${VIRTUAL_ENV})) "
+		fi
+	fi
+}
+
 if [[ -n "$(type -t __git_ps1)" ]];  then
 	export GIT_PS1_SHOWDIRTYSTATE=1
 	export GIT_PS1_SHOWSTASHSTATE=1
@@ -149,7 +157,7 @@ if [[ -n "$(type -t __git_ps1)" ]];  then
 	export GIT_PS1_SHOWUNTRACKEDFILES=1
 	export GIT_PS1_SHOWUPSTREAM="auto verbose"
 	export PROMPT_COMMAND="${PROMPT_COMMAND};"'__git_ps1 \
-"\[$WHITE\]\u\[$BOLD_GREEN\]@\[$BOLD_RED\]\h:\[$WHITE\]\w\[$BLUE\]$(has_docker_machine)\[$COLOR_NONE\]" \
+"\[$BLUE\]$(in_virtual_env)\[$WHITE\]\u\[$BOLD_GREEN\]@\[$BOLD_RED\]\h:\[$WHITE\]\w\[$BLUE\]$(has_docker_machine)\[$COLOR_NONE\]" \
 " \[$GRAY\]\t\n\[$BOLD_GREEN\]\\\$\[$COLOR_NONE\] "'
 else
 	export PS1="\[$WHITE\]\u\[$BOLD_GREEN\]@\[$BOLD_RED\]\h:\[$WHITE\]\w\[$BLUE\]\
@@ -164,7 +172,7 @@ else
 fi
 
 ##################
-# 4. Plugin		 #
+# 4. Plugin      #
 ##################
 
 # FZF
