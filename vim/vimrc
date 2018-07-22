@@ -128,7 +128,7 @@ filetype indent on
 
 if (system('uname') =~ "Darwin")
     let g:python_host_prog = "/Library/Frameworks/Python.framework/Versions/2.7/bin/python2"
-    let g:python3_host_prog = "/Library/Frameworks/Python.framework/Versions/3.6/bin/python3"
+    let g:python3_host_prog = "/Library/Frameworks/Python.framework/Versions/3.7/bin/python3"
 endif
 
 " }}}
@@ -221,8 +221,8 @@ nmap <silent> <C-w>j :call WinMove('j')<cr>
 nmap <silent> <C-w>h :call WinMove('h')<cr>
 
 " Cursor move in autocomplete box
-inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
-inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
+" inoremap <expr> j ((pumvisible())?("\<C-n>"):("j"))
+" inoremap <expr> k ((pumvisible())?("\<C-p>"):("k"))
 
 " ctag
 map <C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
