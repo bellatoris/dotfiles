@@ -50,6 +50,6 @@ Plug 'tpope/vim-commentary'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 
 " LaTeX
-Plug 'vim-latex/vim-latex'
+Plug 'lervag/vimtex'
 
 call plug#end()
