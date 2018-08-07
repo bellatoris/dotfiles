@@ -59,10 +59,10 @@ set incsearch
 set hlsearch
 
 " use spaces for tabbing, by default
-" set expandtab
+set expandtab
 
 " use tab for tab
-set noexpandtab
+" set noexpandtab
 
 " listchars for whitespaces
 set list
@@ -388,6 +388,9 @@ autocmd FileType python map <buffer> <leader>p :call Flake8()<cr>
 " Ensime {{{
 nnoremap <leader>t :EnType<CR>
 au FileType scala nnoremap <leader>df :EnDeclaration<CR>
+"------------------------------------------------------------------}}}
+" VimTeX {{{
+let g:vimtex_view_method = 'zathura'
 "------------------------------------------------------------------}}}
 " }}}
 
