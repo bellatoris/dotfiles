@@ -49,7 +49,4 @@ Plug 'tpope/vim-commentary'
 " Jenkinsfile
 Plug 'martinda/Jenkinsfile-vim-syntax'
 
-" LaTeX
-Plug 'lervag/vimtex'
-
 call plug#end()
