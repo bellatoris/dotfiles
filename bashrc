@@ -192,3 +192,8 @@ if [ -n "$(which vimr)" ]; then
 else
 	_fasd_bash_hook_cmd_complete v
 fi
+
+# hub
+if [ -n "$(which hub)" ]; then
+    alias git=hub
+fi
