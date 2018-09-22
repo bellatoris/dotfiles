@@ -18,6 +18,10 @@ endif
 " 1. General Settings {{{
 """""""""""""""""""""""""""""""""""""""
 
+" do not want to hear fucking bell
+set visualbell
+set noerrorbells
+
 syntax on
 set nocompatible
 

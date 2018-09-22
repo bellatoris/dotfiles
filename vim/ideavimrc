@@ -39,3 +39,7 @@ nnoremap <silent> $ g$
 
 " clear hilighted search
 noremap <space> :set hlsearch!<CR>
+
+" do not want to hear fucking bell
+set visualbell
+set noerrorbells
