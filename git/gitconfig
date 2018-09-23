@@ -1,0 +1,5 @@
+[user]
+	email = bellatoris@snu.ac.kr
+	name = bellatoris
+[difftool]
+	prompt = false

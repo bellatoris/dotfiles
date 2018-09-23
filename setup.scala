@@ -46,10 +46,13 @@ object Main {
   def install(): Unit = {
     val filesHere = new java.io.File(".").listFiles
     val tasks = HashMap[String, String](
-      // shell
-      "/.bashrc" -> "bashrc",
-      "/.bash_profile" -> "bash_profile",
-      "/.fzf-git.sh" -> "fzf-git.sh",
+      // bash
+      "/.bashrc" -> "bash/bashrc",
+      "/.bash_profile" -> "bash/bash_profile",
+
+      // git
+      "/.gitconfig" -> "git/gitconfig",
+      "/.fzf-git.sh" -> "git/fzf-git.sh",
 
       // vim
       "/.vimrc" -> "vim/vimrc",
