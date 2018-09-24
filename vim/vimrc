@@ -19,7 +19,7 @@ endif
 """""""""""""""""""""""""""""""""""""""
 
 " do not want to hear fucking bell
-set visualbell
+set novisualbell
 set noerrorbells
 
 syntax on
@@ -114,7 +114,6 @@ set showcmd
 set lazyredraw
 set ttyfast                                 " redraw fastly
 
-" set visualbell
 set history=10000
 set undolevels=10000
 
