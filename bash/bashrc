@@ -49,6 +49,9 @@ shopt -s checkwinsize
 if [ -n "$(which brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
 	. $(brew --prefix)/etc/bash_completion
 fi
+if [ -f /usr/local/share/bash-completion/bash_completion ]; then
+.	/usr/local/share/bash-completion/bash_completion
+fi
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
