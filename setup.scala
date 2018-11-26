@@ -53,6 +53,7 @@ object Main {
       // git
       "/.gitconfig" -> "git/gitconfig",
       "/.fzf-git.sh" -> "git/fzf-git.sh",
+      "/.tig.sh" -> "git/tig.sh",
 
       // vim
       "/.vimrc" -> "vim/vimrc",
