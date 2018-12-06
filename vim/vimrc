@@ -277,7 +277,7 @@ endif
 
 if has("gui_macvim")
     set guifont=Space\ Mono\ for\ Powerline:h14
-    set transparency=20
+    set transparency=50
 endif
 
 " }}}
