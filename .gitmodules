@@ -13,3 +13,6 @@
 [submodule "vim/ctags"]
 	path = vim/ctags
 	url = https://github.com/universal-ctags/ctags.git
+[submodule "kubernetes/kube-ps1"]
+	path = kubernetes/kube-ps1
+	url = git@github.com:jonmosco/kube-ps1.git

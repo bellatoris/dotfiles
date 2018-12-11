@@ -64,6 +64,9 @@ object Main {
       // NeoVIM
       "/.config/nvim" -> "nvim",
 
+      // Kubernetes
+      "/.kube_ps1.sh" -> "kubernetes/kube-ps1/kube-ps1.sh",
+
       // tmux
       "/.tmux" -> "tmux",
       "/.tmux.conf" -> "tmux/tmux.conf",
