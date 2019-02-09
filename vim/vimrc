@@ -19,7 +19,7 @@ endif
 """""""""""""""""""""""""""""""""""""""
 
 " do not want to hear fucking bell
-set novisualbell
+set visualbell
 set noerrorbells
 
 syntax on
