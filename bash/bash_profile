@@ -25,6 +25,6 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 # set gnu bin PATH for macOS
-if [ -d "/usr/local/opt/coreutils/libexec/gnubin" ]; then
-  PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-fi
+# if [ -d "/usr/local/opt/coreutils/libexec/gnubin" ]; then
+#   PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# fi
