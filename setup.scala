@@ -67,6 +67,9 @@ object Main {
       // Kubernetes
       "/.kube_ps1.sh" -> "kubernetes/kube-ps1/kube-ps1.sh",
 
+      // kube-fzf
+      "/.kube-fzf" -> "kubernetes/kube-fzf",
+
       // tmux
       "/.tmux" -> "tmux",
       "/.tmux.conf" -> "tmux/tmux.conf",

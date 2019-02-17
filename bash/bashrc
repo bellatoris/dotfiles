@@ -205,5 +205,10 @@ fi
 
 # hub
 if [ -n "$(which hub)" ]; then
-    alias git=hub
+	alias git=hub
+fi
+
+# kube-fzf
+if [ -d "$HOME/.kube-fzf" ]; then
+	PATH="$HOME/.kube-fzf:$PATH"
 fi
