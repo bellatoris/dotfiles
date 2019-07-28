@@ -25,11 +25,6 @@ Plug 'nvie/vim-flake8'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
-" Browsing
-Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
 " Scala
 Plug 'derekwyatt/vim-scala'
 " Plug 'ensime/ensime-vim'

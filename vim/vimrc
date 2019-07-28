@@ -310,22 +310,6 @@ nmap <silent> <leader>gd :Gvdiff<cr>
 nmap <silent> <leader>gv :GV<cr>
 
 "------------------------------------------------------------------}}}
-" NerdTree {{{
-
-" filter out some files, by extensions
-let NERDTreeIgnore = ['\.pyc$', '\.class$', '\.o$']
-let NERDTreeShowHidden = 1
-
-" NERD Tree
-nmap <silent> <leader>k :NERDTreeToggle<cr>
-" expand to the path of the file in the current buffer
-nmap <silent> <leader>y :NERDTreeFind<cr>
-
-autocmd FileType nerdtree setlocal nocursorline
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-"------------------------------------------------------------------}}}
-
 " vim-easy-algin {{{
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -370,17 +354,6 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 1
 " endif
 
 "------------------------------------------------------------------}}}
-" Tagbar {{{
-
-nmap <silent> <leader>jo :TagbarOpen fj<cr>
-nmap <silent> <leader>jc :TagbarClose<cr>
-
-let g:tagbar_sort = 0
-let g:tagbar_iconchars = ['▸', '▾']
-
-autocmd FileType tagbar setlocal nocursorline
-
-" -----------------------------------------------------------------}}}
 " EditorConfig {{{
 let g:EditorConfig_exclude_patterns=['fugitive://.*']
 "------------------------------------------------------------------}}}
@@ -397,6 +370,7 @@ let g:racer_insert_paren = 1
 au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gg <Plug>(rust-doc)
 " -----------------------------------------------------------------}}}
 " }}}
 
