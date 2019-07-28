@@ -300,7 +300,6 @@ nmap <silent> <leader>f :Ag <c-r><c-w><cr>
 " Fugitive {{{
 
 nmap <silent> <leader>gs :Gstatus<cr>
-nmap <leader>ge :Gedit<cr>
 nmap <silent> <leader>gr :Gread<cr>
 nmap <silent> <leader>gb :Gblame<cr>
 nmap <silent> <leader>gd :Gvdiff<cr>
@@ -392,8 +391,12 @@ autocmd FileType python map <buffer> <leader>p :call Flake8()<cr>
 nnoremap <leader>t :EnType<CR>
 au FileType scala nnoremap <leader>df :EnDeclaration<CR>
 "------------------------------------------------------------------}}}
-" VimTeX {{{
-let g:vimtex_view_method = 'zathura'
-"------------------------------------------------------------------}}}
+" vim-racer {{{
+let g:racer_experimental_completer = 1
+let g:racer_insert_paren = 1
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+" -----------------------------------------------------------------}}}
 " }}}
 
