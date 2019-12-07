@@ -46,8 +46,13 @@ shopt -s checkwinsize
 [ -f /etc/bash_completion ] && . /etc/bash_completion
 
 # Bash completion for macOS
-if [ -n "$(which brew)" ] && [ -f $(brew --prefix)/etc/bash_completion ]; then
-	. $(brew --prefix)/etc/bash_completion
+if [ -n "$(which brew)" ]; then
+	if [ -f $(brew --prefix)/etc/bash_completion ]; then
+		. $(brew --prefix)/etc/bash_completion
+	elif [ -f $(brew --prefix)/etc/profile.d/bash_completion.sh ]; then
+		export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+		. $(brew --prefix)/etc/profile.d/bash_completion.sh
+	fi
 fi
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
 .	/usr/local/share/bash-completion/bash_completion
