@@ -5,6 +5,10 @@ set incsearch
 
 " surround
 set surround
+" commentary
+set commentary
+" multiple-cursors
+set multiple-cursors
 
 " history
 set history=10000

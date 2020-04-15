@@ -45,4 +45,7 @@ Plug 'tpope/vim-commentary'
 " Jenkinsfile
 Plug 'martinda/Jenkinsfile-vim-syntax'
 
+" Coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
