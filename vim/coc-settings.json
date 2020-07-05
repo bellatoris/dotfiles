@@ -1,0 +1,11 @@
+{
+    "suggest.autoTrigger": "none",
+    "suggest.enablePreview": true,
+    "suggest.floatEnable": true,
+    "suggest.removeDuplicateItems": true,
+    "list.insertMappings": {
+        "<C-n>": "normal:j",
+        "<C-p>": "normal:k",
+        "<C-t>": "action:tabe"
+    }
+}

@@ -31,7 +31,7 @@ Plug 'derekwyatt/vim-scala'
 
 " Rust
 Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
+" Plug 'racer-rust/vim-racer'
 
 " Kotlin
 Plug 'udalov/kotlin-vim'
