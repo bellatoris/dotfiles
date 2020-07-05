@@ -10,23 +10,25 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-        . "$HOME/.bashrc"
+        source "$HOME/.bashrc"
     fi
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
+    export PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ]; then
-    PATH="$HOME/.local/bin:$PATH"
+    export PATH="$HOME/.local/bin:$PATH"
 fi
 
 # set gnu bin PATH for macOS
 # if [ -d "/usr/local/opt/coreutils/libexec/gnubin" ]; then
-#   PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+#   export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # fi
 
-export PATH="$HOME/.cargo/bin:$PATH"
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
