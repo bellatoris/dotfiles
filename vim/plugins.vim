@@ -48,4 +48,7 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 " Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" lldb
+Plug 'gilligan/vim-lldb'
+
 call plug#end()
