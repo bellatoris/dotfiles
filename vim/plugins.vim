@@ -51,4 +51,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " lldb
 Plug 'gilligan/vim-lldb'
 
+" tex
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
 call plug#end()
