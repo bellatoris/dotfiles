@@ -53,5 +53,9 @@ Plug 'gilligan/vim-lldb'
 
 " tex
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'lervag/vimtex'
+
+" C++
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 call plug#end()

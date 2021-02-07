@@ -1,4 +1,10 @@
 {
+    "languageserver": {
+        "svls": {
+            "command": "svls",
+            "filetypes": ["systemverilog", "verilog_systemverilog", "verilog"]
+        }
+    },
     "suggest.autoTrigger": "none",
     "suggest.enablePreview": true,
     "suggest.floatEnable": true,

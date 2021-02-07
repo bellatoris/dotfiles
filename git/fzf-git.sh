@@ -38,7 +38,7 @@ ghs() {
 	fzf-down --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
 		--header 'Press CTRL-S to toggle sort' \
 		--preview 'grep -o "[a-f0-9]\{10,\}" <<< {} | xargs git show --color=always | head -'$LINES |
-	grep -o 1 "[a-f0-9]\{10,\}"
+	grep -o "[a-f0-9]\{10,\}"
 }
 
 gr() {
