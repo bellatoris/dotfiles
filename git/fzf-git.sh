@@ -48,3 +48,10 @@ gr() {
 		--preview 'git log --color=always --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" --remotes={1} | head -200' |
 	cut -d$'\t' -f1
 }
+
+bind '"\er": redraw-current-line'
+bind '"\C-g\C-f": "$(gf)\e\C-e\er"'
+bind '"\C-g\C-b": "$(gb)\e\C-e\er"'
+bind '"\C-g\C-t": "$(gt)\e\C-e\er"'
+bind '"\C-g\C-h": "$(ghs)\e\C-e\er"'
+bind '"\C-g\C-r": "$(gr)\e\C-e\er"'

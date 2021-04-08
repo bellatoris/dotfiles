@@ -124,6 +124,7 @@ autocmd FileType scala setlocal ts=8 sts=2 sw=2
 autocmd FileType javascript setlocal ts=8 sts=2 sw=2
 autocmd FileType typescript setlocal ts=8 sts=2 sw=2
 autocmd FileType tex setlocal ts=2 sts=2 sw=2
+autocmd FileType ocaml setlocal ts=2 sts=2 sw=2
 
 filetype plugin on
 filetype indent on
@@ -298,7 +299,7 @@ if isdirectory(".git")
     nmap <silent> <leader>r :GFiles<cr>
 else 
     " otherwise, use :FZF
-    nmap <silent> <leader>r :FZF<cr>
+    nmap <silent> <leader>r :Files<cr>
 endif
 
 nmap <silent> <leader>f :Ag <c-r><c-w><cr>
@@ -429,6 +430,9 @@ endif
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Open diagnositc
+nmap <silent> <C-l> <Plug>(coc-diagnostic-info)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)

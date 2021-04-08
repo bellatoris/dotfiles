@@ -3,8 +3,36 @@
         "svls": {
             "command": "svls",
             "filetypes": ["systemverilog", "verilog_systemverilog", "verilog"]
+        },
+        "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cc",
+                "cpp",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        },
+        "ocaml-lsp": {
+          "command": "opam",
+          "args": ["config", "exec", "--", "ocamllsp"],
+          "filetypes": ["ocaml", "reason"]
         }
     },
+    "diagnostic.enableMessage": "jump",
     "suggest.autoTrigger": "none",
     "suggest.enablePreview": true,
     "suggest.floatEnable": true,
