@@ -58,4 +58,7 @@ Plug 'lervag/vimtex'
 " C++
 Plug 'octol/vim-cpp-enhanced-highlight'
 
+" file manager
+Plug 'mcchrish/nnn.vim'
+
 call plug#end()
