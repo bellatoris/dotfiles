@@ -41,5 +41,6 @@
         "<C-n>": "normal:j",
         "<C-p>": "normal:k",
         "<C-t>": "action:tabe"
-    }
+    },
+    "rust.clippy_preference": "on"
 }

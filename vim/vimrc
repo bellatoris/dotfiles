@@ -374,6 +374,21 @@ let g:livepreview_previewer = 'open -a Preview'
 " vimtex {{{
 let g:tex_flavor = 'latex'
 "------------------------------------------------------------------}}}
+" nnn {{{
+" Disable default mappings
+let g:nnn#set_default_mappings = 0
+
+nnoremap <silent> <leader>m :NnnPicker<CR>
+
+" Floating window (neovim latest and vim with patch 8.2.191)
+" Scrolling does not work witth floating window. [https://github.com/mcchrish/nnn.vim/issues/62]
+" let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
+
+let g:nnn#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-x>': 'split',
+      \ '<c-v>': 'vsplit' }
+"------------------------------------------------------------------}}}
 " Ensime {{{
 nnoremap <leader>t :EnType<CR>
 au FileType scala nnoremap <leader>df :EnDeclaration<CR>

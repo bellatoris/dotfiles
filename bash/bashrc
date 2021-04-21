@@ -230,3 +230,6 @@ fi
 if [ -d "$HOME/.kube-fzf" ]; then
 	PATH="$HOME/.kube-fzf:$PATH"
 fi
+
+# nnn
+[ -f ~/.config/nnn/nnn.sh ] && source ~/.config/nnn/nnn.sh
