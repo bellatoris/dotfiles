@@ -31,7 +31,6 @@ Plug 'derekwyatt/vim-scala'
 
 " Rust
 Plug 'rust-lang/rust.vim'
-" Plug 'racer-rust/vim-racer'
 
 " Kotlin
 Plug 'udalov/kotlin-vim'
@@ -59,6 +58,6 @@ Plug 'lervag/vimtex'
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 " file manager
-Plug 'mcchrish/nnn.vim'
+Plug 'justinmk/vim-dirvish'
 
 call plug#end()

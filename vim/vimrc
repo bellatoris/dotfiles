@@ -19,7 +19,7 @@ endif
 """""""""""""""""""""""""""""""""""""""
 
 " do not want to hear fucking bell
-set visualbell
+set novisualbell
 set noerrorbells
 
 syntax on
@@ -31,11 +31,11 @@ set runtimepath+=~/.vim
 let $PATH .= ":" . expand("\~/.local/bin")
 
 " basic displays
-set number		    " show line numbers
+set number                  " show line numbers
 set ruler
 
 " input settings
-set bs=indent,eol,start	    " allow backspaces over everything
+set bs=indent,eol,start     " allow backspaces over everything
 set autoindent
 set smartindent
 
@@ -52,13 +52,13 @@ set shiftwidth=4
 set softtabstop=4
 
 " tab navigation
-set showtabline=2	    " always show tab pannel
+set showtabline=2           " always show tab pannel
 
 set scrolloff=3
 
 " search
-set ignorecase		    " case-insensitive by default
-set smartcase		    " case-sensitive if keyword contains both uppercase and lowercase
+set ignorecase              " case-insensitive by default
+set smartcase               " case-sensitive if keyword contains both uppercase and lowercase
 set incsearch
 set hlsearch
 
@@ -78,7 +78,7 @@ set wildmode=list:longest,full
 set wildignore=*.swp,*.swo,*.class
 
 " status line
-set laststatus=2	    " show anytime
+set laststatus=2            " show anytime
 
 " native customized statusline, if airline is not available
 " (this setting will be replaced afterwards by airline)
@@ -99,8 +99,8 @@ set fileencodings=utf-8,cp949,latin1
 set fileformats=unix,dos
 
 " split and autocomplete settings
-set splitbelow				    " preview window at bottom
-set completeopt=menuone,preview,longest	    " show preview and pop-up menu
+set splitbelow                              " preview window at bottom
+set completeopt=menuone,preview,longest     " show preview and pop-up menu
 
 " no fucking swap and backup files
 set noswapfile
@@ -374,33 +374,10 @@ let g:livepreview_previewer = 'open -a Preview'
 " vimtex {{{
 let g:tex_flavor = 'latex'
 "------------------------------------------------------------------}}}
-" nnn {{{
-" Disable default mappings
-let g:nnn#set_default_mappings = 0
-
-nnoremap <silent> <leader>m :NnnPicker<CR>
-
-" Floating window (neovim latest and vim with patch 8.2.191)
-" Scrolling does not work witth floating window. [https://github.com/mcchrish/nnn.vim/issues/62]
-" let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
-
-let g:nnn#action = {
-      \ '<c-t>': 'tab split',
-      \ '<c-x>': 'split',
-      \ '<c-v>': 'vsplit' }
-"------------------------------------------------------------------}}}
 " Ensime {{{
 nnoremap <leader>t :EnType<CR>
 au FileType scala nnoremap <leader>df :EnDeclaration<CR>
 "------------------------------------------------------------------}}}
-" vim-racer {{{
-" let g:racer_experimental_completer = 1
-" let g:racer_insert_paren = 1
-" au FileType rust nmap gd <Plug>(rust-def)
-" au FileType rust nmap gs <Plug>(rust-def-split)
-" au FileType rust nmap gx <Plug>(rust-def-vertical)
-" au FileType rust nmap <leader>gg <Plug>(rust-doc)
-" -----------------------------------------------------------------}}}
 " coc {{{
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -421,7 +398,7 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
+if has("nvim-0.5.0") || has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
   set signcolumn=number
 else
@@ -440,6 +417,11 @@ if exists('*complete_info')
 else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -461,8 +443,10 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
 
@@ -505,8 +489,18 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
 " Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
+" Requires 'textDocument/selectionRange' support of language server.
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
